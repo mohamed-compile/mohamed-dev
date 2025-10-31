@@ -1,92 +1,476 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Dev Section</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>MOHAMED EL MAJDOUB — Portfolio</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f9;
+  :root{
+    --bg: #f4f6fb;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --accent-1: #1e3a8a;
+    --accent-2: #2563eb;
+    --accent-3: #3b82f6;
+    --accent-4: #60a5fa;
+    --glass: rgba(255,255,255,0.7);
+    --shadow: 0 10px 30px rgba(16,24,40,0.08);
   }
 
-  .section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px;
-    max-width: 1000px;
-    margin: auto;
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(180deg,#f4f6fb 0%, #eef2ff 100%);
+    color: #0f172a;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.4;
   }
 
-  /* Left side: Developer name + description */
-  .dev-info {
-    flex: 1;
-    text-align: left;
-    padding-right: 50px;
+  /* NAVBAR */
+  .topbar{
+    position:sticky;
+    top:0;
+    z-index:40;
+    backdrop-filter: blur(6px);
+    background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.55));
+    border-bottom: 1px solid rgba(15,23,42,0.04);
+  }
+  .container{
+    max-width:1200px;
+    margin:0 auto;
+    padding:14px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+  }
+  .logo{
+    font-weight:800;
+    letter-spacing:0.6px;
+  }
+  nav ul{
+    display:flex;
+    gap:18px;
+    list-style:none;
+    margin:0;
+    padding:0;
+    align-items:center;
+  }
+  nav a{
+    text-decoration:none;
+    color: #0f172a;
+    font-weight:600;
+    padding:8px 10px;
+    border-radius:8px;
+    transition: all .18s ease;
+    font-size:15px;
+  }
+  nav a:hover, nav a.active{
+    background: linear-gradient(90deg,var(--accent-2), var(--accent-3));
+    color:white;
+    box-shadow: 0 6px 18px rgba(59,130,246,0.15);
   }
 
-  .dev-info h1 {
-    font-size: 36px;
-    color: #222;
-    margin-bottom: 20px;
+  /* MAIN LAYOUT */
+  main{
+    max-width:1200px;
+    margin:32px auto;
+    padding: 24px;
   }
 
-  .dev-info p {
-    font-size: 18px;
-    color: #555;
+  .hero {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:28px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.55));
+    padding:40px;
+    border-radius:18px;
+    box-shadow: var(--shadow);
   }
 
-  /* Right side: Boxes */
-  .boxes {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(2, 150px);
-    grid-template-rows: repeat(2, 150px);
-    gap: 20px;
-    justify-content: flex-end;
+  /* Left column */
+  .left{
+    flex:1;
+    min-width:260px;
+  }
+  .intro {
+    font-size:20px;
+    color:var(--muted);
+    margin-bottom:8px;
+    font-weight:600;
+  }
+  .name {
+    font-size:40px;
+    font-weight:800;
+    margin:0 0 18px 0;
+    color:#071133;
+    letter-spacing:-0.6px;
   }
 
-  .box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
+  /* typing line */
+  .typing-line{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:18px;
+    flex-wrap:wrap;
+  }
+  .typing-label{
+    font-weight:700;
+    color:var(--accent-1);
+    font-size:16px;
+    min-width:84px;
+  }
+  .typing {
+    font-size:28px;
+    font-weight:800;
+    color:#0b1220;
+    min-height:36px;
+    letter-spacing:1px;
+    font-family: "Inter", monospace;
+  }
+  .cursor{
+    display:inline-block;
+    width:2px;
+    height:36px;
+    background:#0b1220;
+    margin-left:6px;
+    animation:blink 1s steps(2, start) infinite;
+    vertical-align:middle;
+  }
+  @keyframes blink{
+    0%,50%{opacity:1}
+    51%,100%{opacity:0}
   }
 
-  .box:hover {
-    transform: translateY(-5px);
+  .desc{
+    margin-top:12px;
+    color:var(--muted);
+    font-size:16px;
+    max-width:560px;
   }
 
-  .box1 { background: #1e3a8a; } /* أزرق غامق */
-  .box2 { background: #2563eb; } /* أزرق متوسط */
-  .box3 { background: #3b82f6; } /* أزرق فاتح */
-  .box4 { background: #60a5fa; } /* أزرق سماوي */
+  /* buttons */
+  .actions{
+    margin-top:20px;
+    display:flex;
+    gap:12px;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+  .btn{
+    padding:12px 18px;
+    border-radius:12px;
+    font-weight:700;
+    border: none;
+    cursor:pointer;
+    font-size:15px;
+  }
+  .btn-primary{
+    background: linear-gradient(90deg,var(--accent-2), var(--accent-3));
+    color:white;
+    box-shadow: 0 8px 24px rgba(37,99,235,0.14);
+  }
+  .btn-disabled{
+    background:transparent;
+    border:1px solid rgba(15,23,42,0.06);
+    color:var(--muted);
+    cursor:not-allowed;
+    opacity:0.7;
+  }
+
+  /* Right column: big icon */
+  .right{
+    width:340px;
+    max-width:40%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .code-card{
+    width:320px;
+    height:320px;
+    border-radius:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 0 18px 50px rgba(37,99,235,0.09);
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2) 40%, var(--accent-3) 70%, var(--accent-4));
+    position:relative;
+    overflow:hidden;
+  }
+  .code-card::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background: radial-gradient(circle at 10% 10%, rgba(255,255,255,0.06), transparent 6%),
+                radial-gradient(circle at 90% 90%, rgba(0,0,0,0.04), transparent 8%);
+    mix-blend-mode: overlay;
+  }
+  .code-svg{
+    width:62%;
+    height:62%;
+    filter: drop-shadow(0 12px 30px rgba(2,6,23,0.25));
+  }
+
+  /* Pages */
+  section.page {
+    margin-top:48px;
+    padding:36px;
+    background:var(--card);
+    border-radius:12px;
+    box-shadow: var(--shadow);
+  }
+  section.page h2{margin:0 0 12px 0}
+  .section-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:18px;
+  }
+
+  /* Contact card */
+  #contact .contact-card{
+    padding:20px;
+    border-radius:12px;
+    background: linear-gradient(180deg, rgba(37,99,235,0.06), rgba(37,99,235,0.02));
+  }
+
+  /* responsive */
+  @media (max-width: 880px){
+    .hero{flex-direction:column; padding:28px}
+    .right{width:100%; max-width:100%;}
+    .code-card{width:260px;height:260px}
+    .section-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:480px){
+    .name{font-size:28px}
+    .typing{font-size:22px}
+    .code-card{width:220px;height:220px}
+    nav ul{display:none}
+    .container{padding:12px}
+  }
+
+  .anchor-offset{scroll-margin-top:84px}
 </style>
 </head>
 <body>
 
-<div class="section">
-  <!-- Left: Developer info -->
-  <div class="dev-info">
-    <h1>MOHAMED EL MAJDOUB DEV</h1>
-    <p>Welcome to my portfolio! Explore my skills in programming, scripting, and coding.</p>
-  </div>
+  <!-- NAVBAR -->
+  <header class="topbar" role="banner">
+    <div class="container">
+      <div class="logo">MOHAMED EL MAJDOUB DEV</div>
 
-  <!-- Right: Boxes -->
-  <div class="boxes">
-    <div class="box box1">Programme</div>
-    <div class="box box2">Script</div>
-    <div class="box box3">Code</div>
-    <div class="box box4">Compile</div>
-  </div>
-</div>
+      <nav role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="#home" class="nav-link active">HOME</a></li>
+          <li><a href="#about" class="nav-link">ABOUT</a></li>
+          <li><a href="#projects" class="nav-link">PROJECTS</a></li>
+          <li><a href="#services" class="nav-link">SERVICES</a></li>
+          <li><a href="#contact" class="nav-link">CONTACT</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME (first screen) -->
+    <section id="home" class="hero anchor-offset" aria-label="Home section">
+      <div class="left">
+        <div class="intro">Hi, I'm</div>
+        <h1 class="name">MOHAMED EL MAJDOUB</h1>
+
+        <!-- Typing animation: each word types then deletes -->
+        <div class="typing-line" aria-hidden="false">
+          <div class="typing-label">Focus</div>
+          <div>
+            <span id="typing" class="typing" aria-live="polite" aria-atomic="true"></span><span class="cursor" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <p class="desc">
+          I build clean, maintainable code and bring digital ideas to life. I focus on front-end engineering,
+          automation scripts, and compiling efficient solutions. Explore my work and services below.
+        </p>
+
+        <div class="actions">
+          <button id="hireBtn" class="btn btn-primary" aria-controls="contact">Hire me</button>
+          <button class="btn btn-disabled" disabled>Download CV</button>
+        </div>
+      </div>
+
+      <div class="right" aria-hidden="false">
+        <!-- Big coding-related icon (SVG) with blue gradient -->
+        <div class="code-card" role="img" aria-label="Coding icon with blue gradient">
+          <svg class="code-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stop-color="#1e3a8a"/>
+                <stop offset="40%" stop-color="#2563eb"/>
+                <stop offset="70%" stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#60a5fa"/>
+              </linearGradient>
+              <filter id="f1" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#0b1220" flood-opacity="0.12"/>
+              </filter>
+            </defs>
+
+            <rect x="6" y="6" width="108" height="108" rx="18" ry="18" fill="url(#g1)" opacity="0.98"></rect>
+
+            <g transform="translate(20,22)" fill="none" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6,6 0,18 6,30" opacity="0.96"></polyline>
+              <polyline points="48,6 54,18 48,30" opacity="0.96"></polyline>
+
+              <line x1="18" y1="12" x2="36" y2="12" stroke-opacity="0.95" stroke-width="4"></line>
+              <line x1="18" y1="22" x2="36" y2="22" stroke-opacity="0.85" stroke-width="4"></line>
+            </g>
+
+            <g fill="rgba(255,255,255,0.06)" transform="translate(90,92)" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="page anchor-offset" aria-label="About">
+      <h2>ABOUT</h2>
+      <div class="section-grid">
+        <div>
+          <p>Short bio: I'm a developer specialized in front-end building interactive experiences and practical scripts.</p>
+          <ul>
+            <li>Languages: HTML, CSS, JavaScript</li>
+            <li>Tools: Git, Webpack, Node</li>
+          </ul>
+        </div>
+        <div>
+          <p>Approach: Clean code, performance-aware and accessible design.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="page anchor-offset" aria-label="Projects">
+      <h2>PROJECTS</h2>
+      <p>Short gallery / project list placeholder. Add cards or links here to showcase your work.</p>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="page anchor-offset" aria-label="Services">
+      <h2>SERVICES</h2>
+      <div class="section-grid">
+        <div>
+          <h3>Frontend Development</h3>
+          <p>Modern responsive websites and components.</p>
+        </div>
+        <div>
+          <h3>Automation & Scripts</h3>
+          <p>Build scripts and small tools to speed up workflows.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="page anchor-offset" aria-label="Contact">
+      <h2>CONTACT</h2>
+      <div class="contact-card">
+        <p>If you'd like to assign a task or collaborate, email me at <strong>you@example.com</strong> or add a contact form here.</p>
+        <p>Phone / WhatsApp: +212 6X XX XX XX XX (replace with your number)</p>
+      </div>
+    </section>
+
+  </main>
+
+<script>
+  // NAV active state handling (smooth scroll + active class)
+  document.querySelectorAll('a.nav-link').forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const href = a.getAttribute('href');
+      const target = document.querySelector(href);
+      if(target){
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+        document.querySelectorAll('a.nav-link').forEach(x=>x.classList.remove('active'));
+        a.classList.add('active');
+      }
+    });
+  });
+
+  // Hire button -> scroll to contact
+  document.getElementById('hireBtn').addEventListener('click', ()=>{
+    const contact = document.getElementById('contact');
+    if(contact){
+      contact.scrollIntoView({behavior:'smooth', block:'start'});
+      document.querySelectorAll('a.nav-link').forEach(x=>x.classList.remove('active'));
+      const contactLink = document.querySelector('a[href="#contact"]');
+      if(contactLink) contactLink.classList.add('active');
+    }
+  });
+
+  // Typing animation logic
+  (function(){
+    const el = document.getElementById('typing');
+    // Words exactly as requested (kept as in original request)
+    const words = ["COMPILE", "SCRIPT", "CODE", "PPOGRAMME"];
+    const typeSpeed = 100;
+    const deleteSpeed = 60;
+    const pauseAfterType = 900;
+    const pauseAfterDelete = 300;
+
+    let w = 0;
+    let i = 0;
+    let isDeleting = false;
+
+    function tick(){
+      const word = words[w];
+      if(!isDeleting){
+        i++;
+        el.textContent = word.slice(0, i);
+        if(i >= word.length){
+          isDeleting = true;
+          setTimeout(tick, pauseAfterType);
+          return;
+        }
+        setTimeout(tick, typeSpeed + Math.random()*40);
+      } else {
+        i--;
+        el.textContent = word.slice(0, i);
+        if(i <= 0){
+          isDeleting = false;
+          w = (w + 1) % words.length;
+          setTimeout(tick, pauseAfterDelete + Math.random()*80);
+          return;
+        }
+        setTimeout(tick, deleteSpeed + Math.random()*30);
+      }
+    }
+
+    setTimeout(tick, 600);
+  })();
+
+  // Update nav active on scroll
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('a.nav-link');
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      const id = entry.target.getAttribute('id');
+      const link = document.querySelector('a[href="#'+id+'"]');
+      if(entry.isIntersecting){
+        navLinks.forEach(x=>x.classList.remove('active'));
+        if(link) link.classList.add('active');
+      }
+    });
+  }, {threshold: 0.45});
+  sections.forEach(s=>observer.observe(s));
+</script>
 
 </body>
 </html>
+```
