@@ -1,60 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amin Dev Portfolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #f4f4f9;
-      margin: 0;
-      padding: 50px;
-    }
-    h1 {
-      color: #333;
-    }
-    p {
-      color: #555;
-      font-size: 18px;
-    }
-    .services {
-      margin-top: 40px;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-    }
-    .service-box {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      width: 200px;
-    }
-    .service-box h3 {
-      margin-top: 0;
-      color: #0077cc;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amin Dev Section</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f9;
+  }
+
+  .section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  /* Right side: Developer name + description */
+  .dev-info {
+    flex: 1;
+    text-align: right;
+    padding-left: 50px;
+  }
+
+  .dev-info h1 {
+    font-size: 36px;
+    color: #222;
+    margin-bottom: 20px;
+  }
+
+  .dev-info p {
+    font-size: 18px;
+    color: #555;
+  }
+
+  /* Left side: Boxes */
+  .boxes {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(2, 150px);
+    gap: 20px;
+  }
+
+  .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+  }
+
+  .box:hover {
+    transform: translateY(-5px);
+  }
+
+  .box1 { background: #1e3a8a; } /* أزرق غامق */
+  .box2 { background: #2563eb; } /* أزرق متوسط */
+  .box3 { background: #3b82f6; } /* أزرق فاتح */
+  .box4 { background: #60a5fa; } /* أزرق سماوي */
+</style>
 </head>
 <body>
-  <h1>Welcome 👋 I'm Amin</h1>
-  <p>This is my personal website and portfolio showcase!</p>
 
-  <div class="services">
-    <div class="service-box">
-      <h3>Web Development</h3>
-      <p>Creating responsive and modern websites.</p>
-    </div>
-    <div class="service-box">
-      <h3>Portfolio Design</h3>
-      <p>Helping students showcase their projects.</p>
-    </div>
-    <div class="service-box">
-      <h3>Consulting</h3>
-      <p>Guidance on web projects and coding skills.</p>
-    </div>
+<div class="section">
+  <!-- Left: Boxes -->
+  <div class="boxes">
+    <div class="box box1">Programme</div>
+    <div class="box box2">Script</div>
+    <div class="box box3">Code</div>
+    <div class="box box4">Compile</div>
   </div>
+
+  <!-- Right: Developer info -->
+  <div class="dev-info">
+    <h1>Amin Dev</h1>
+    <p>Welcome to my portfolio! Explore my skills in programming, scripting, and coding.</p>
+  </div>
+</div>
+
 </body>
 </html>
