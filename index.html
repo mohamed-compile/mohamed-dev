@@ -20,11 +20,11 @@
     margin: auto;
   }
 
-  /* Right side: Developer name + description */
+  /* Left side: Developer name + description */
   .dev-info {
     flex: 1;
-    text-align: right;
-    padding-left: 50px;
+    text-align: left;
+    padding-right: 50px;
   }
 
   .dev-info h1 {
@@ -38,13 +38,14 @@
     color: #555;
   }
 
-  /* Left side: Boxes */
+  /* Right side: Boxes */
   .boxes {
     flex: 1;
     display: grid;
     grid-template-columns: repeat(2, 150px);
     grid-template-rows: repeat(2, 150px);
     gap: 20px;
+    justify-content: flex-end;
   }
 
   .box {
@@ -72,18 +73,18 @@
 <body>
 
 <div class="section">
-  <!-- Left: Boxes -->
+  <!-- Left: Developer info -->
+  <div class="dev-info">
+    <h1>Amin Dev</h1>
+    <p>Welcome to my portfolio! Explore my skills in programming, scripting, and coding.</p>
+  </div>
+
+  <!-- Right: Boxes -->
   <div class="boxes">
     <div class="box box1">Programme</div>
     <div class="box box2">Script</div>
     <div class="box box3">Code</div>
     <div class="box box4">Compile</div>
-  </div>
-
-  <!-- Right: Developer info -->
-  <div class="dev-info">
-    <h1>Amin Dev</h1>
-    <p>Welcome to my portfolio! Explore my skills in programming, scripting, and coding.</p>
   </div>
 </div>
 
